@@ -1,0 +1,88 @@
+let player1Data = [];
+let player2Data = [];
+let calledNumbers = [];
+let availableNumbers = [];
+let gameOver = false;
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function createBoard(playerId, gridData) {
+  const board = document.getElementById(playerId);
+  board.innerHTML = "";
+  const numbers = shuffle([...Array(25)].map((_, i) => i + 1));
+  numbers.forEach(num => {
+    gridData.push(num);
+    const cell = document.createElement("div");
+    cell.className = "bingo-cell";
+    cell.textContent = num;
+    cell.dataset.number = num;
+    board.appendChild(cell);
+  });
+}
+
+function markCell(playerId, grid, num) {
+  for (let i = 0; i < 25; i++) {
+    if (grid[i] === num) {
+      grid[i] = 'X';
+      const cell = document.querySelector(`#${playerId} .bingo-cell:nth-child(${i + 1})`);
+      if (cell) {
+        cell.textContent = 'X';
+        cell.classList.add("marked");
+      }
+    }
+  }
+}
+
+function checkWin(grid) {
+  for (let i = 0; i < 5; i++) {
+    const row = grid.slice(i * 5, (i + 1) * 5);
+    if (row.every(cell => cell === 'X')) return true;
+
+    const col = [grid[i], grid[i+5], grid[i+10], grid[i+15], grid[i+20]];
+    if (col.every(cell => cell === 'X')) return true;
+  }
+
+  const diag1 = [grid[0], grid[6], grid[12], grid[18], grid[24]];
+  const diag2 = [grid[4], grid[8], grid[12], grid[16], grid[20]];
+  return diag1.every(c => c === 'X') || diag2.every(c => c === 'X');
+}
+
+function callNumber() {
+  if (gameOver || calledNumbers.length === 25) return;
+
+  const next = availableNumbers.pop();
+  calledNumbers.push(next);
+  document.getElementById("called-number").textContent = `🎯 Called Number: ${next}`;
+
+  markCell("player1", player1Data, next);
+  markCell("player2", player2Data, next);
+
+  if (checkWin(player1Data)) {
+    alert("🏆 Player 1 wins!");
+    gameOver = true;
+  } else if (checkWin(player2Data)) {
+    alert("🏆 Player 2 wins!");
+    gameOver = true;
+  }
+}
+
+function resetGame() {
+  player1Data = [];
+  player2Data = [];
+  calledNumbers = [];
+  availableNumbers = shuffle([...Array(25)].map((_, i) => i + 1));
+  gameOver = false;
+
+  createBoard("player1", player1Data);
+  createBoard("player2", player2Data);
+  document.getElementById("called-number").textContent = "🎯 Waiting for number...";
+}
+
+// Initial setup
+resetGame();
+
+// Buttons
+document.getElementById("call-btn").onclick = callNumber;
+document.getElementById("restart-btn").onclick = resetGame;
