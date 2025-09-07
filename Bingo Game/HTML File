@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bingo Game</title>
+  <link rel="stylesheet" href="bingo.css" />
+</head>
+<body>
+  <h1>🎲 Bingo Game</h1>
+
+  <div class="board-container">
+    <div>
+      <h2>Player 1</h2>
+      <div id="player1" class="bingo-board"></div>
+    </div>
+    <div>
+      <h2>Player 2</h2>
+      <div id="player2" class="bingo-board"></div>
+    </div>
+  </div>
+
+  <button id="call-btn">Call Bingo Number</button>
+  <button id="restart-btn">🔄 Start New Game</button>
+  <p id="called-number">🎯 Waiting for number...</p>
+
+  <script src="bingo.js"></script>
+</body>
+</html>
