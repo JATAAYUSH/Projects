@@ -1,0 +1,73 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(to right, #ffe29f, #ffa99f, #ff719a);
+  color: #222;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px #fff;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.bingo-board {
+  display: grid;
+  grid-template-columns: repeat(5, 70px);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.bingo-cell {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #555;
+  background: linear-gradient(to bottom right, #ffffff, #e0e0e0);
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.bingo-cell:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to bottom right, #b3e5fc, #81d4fa);
+}
+
+.bingo-cell.marked {
+  background: linear-gradient(to bottom right, #66bb6a, #43a047);
+  color: white;
+  font-weight: bold;
+  border: 2px solid #2e7d32;
+  transform: scale(1.05);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: linear-gradient(to right, #ff8a65, #ff7043);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 10px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #ff7043, #f4511e);
+}
