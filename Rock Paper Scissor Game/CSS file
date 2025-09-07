@@ -1,1 +1,95 @@
+*{
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+}
+body {
+  background: radial-gradient(circle at top , #a9e4fe, #508fa4, #2c5364);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #eee;
+}
+h1{
+  font-size: 40px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  color: #000000;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff;
+  /* background-color: #000; */
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.choices{
+    height: 200px;
+    width: 100;
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+    padding:0px 200px 0px 200px ;
+}
+.choice:active{
+    transform:scale(0.9);
+}
+.choice:hover{
+    /* opacity: 0.7; */
+    cursor:pointer;
+    /* box-sizing: border-box; */
+    /* border: border-box ; */
+    border: 5px black solid;
+}
+.choice{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    padding: 5px 5px 5px 5px;
+}
+.score-board{
+    height: 200px;
+    width: 100;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    font-size: 2rem;
+    gap: 5rem;
+}
+.msgs{
+    height: 5px;
+    /* width: 100; */
+    padding: 50px;
+}
+#user_score,#comp_score{
+    font-size: 4rem;
+}
+#msg{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    display: inline;
+    font-size:x-large;
+    font-family: monospace;
+    font-weight:900;
+    padding: 5px 10px 5px 10px;
+    border-radius:5px;
+}
+#reset {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f6ebeb3b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#reset:hover {
+  background-color: #7d7a7a;
+}
 
