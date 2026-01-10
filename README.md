@@ -1,2 +1,4 @@
-# Projects
-Include some basic projects 
+All Projects Link - 
+Amazon Web Page - https://amazonclonebyaayush.netlify.app/
+Bingo Game - https://bingogamebyaayush.netlify.app/
+Basic Calculator - https://basiccalculatorbyaayush.netlify.app/
